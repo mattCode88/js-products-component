@@ -1,0 +1,146 @@
+[
+    {
+        "title": "Blauer",
+        "number": 1,
+        "type": "Giacca",
+        "image": "https://img01.ztat.net/article/spp-media-p1/c6f00b6545c549f295bd5ff5a22dd1e5/97a4723801d44ff2b08ff2069750436a.jpg?imwidth=1800",
+        "price": 188,
+        "originalPrice": "",
+        "description": "REPREVE STAND UP COLLAR - Giacca da mezza stagione"
+    },
+    {
+        "title": "PULL&Jack & Jones",
+        "number": 2,
+        "type": "Pantalone",
+        "image": "https://img01.ztat.net/article/spp-media-p1/44b11fe504383162904f12cb72513d41/1240e67e5216486697c1caabab588ba9.jpg?imwidth=1800",
+        "price": 24.95,
+        "originalPrice": "",
+        "description": "JJIGLENN JJORIGINAL - Jeans slim fit"
+    },
+    {
+        "title": "The North Face",
+        "number": 3,
+        "type": "Giacca",
+        "image": "https://img01.ztat.net/article/spp-media-p1/63106e0775814fdaa42d8cdce7740bd4/c9a0b5b94ade4264b71c0a27fa53a282.jpg?imwidth=1800",
+        "price": 63.99,
+        "originalPrice": 79.99,
+        "description": "GLACIER FULL ZIP - Giacca in pile"
+    },
+    {
+        "title": "CHASIN'",
+        "number": 4,
+        "type": "Pantalone",
+        "image": "https://img01.ztat.net/article/spp-media-p1/3b18440cf6bd3461842a016fafad4050/85363d5473fe479891964c15c7ec5013.jpg?imwidth=1800",
+        "price": 49.95,
+        "originalPrice": 109.95,
+        "description": "CROWN ELI - Jeans slim fit"
+    },
+    {
+        "title": "Tommy Jeans",
+        "number": 5,
+        "type": "Maglia",
+        "image": "https://img01.ztat.net/article/spp-media-p1/3ff8b4e109563d26a3789e6457cd5b79/e4326574d9b24d87a76d47e9aedb3058.jpg?imwidth=1800",
+        "price": 28.09,
+        "originalPrice": 34.99,
+        "description": "ORIGINAL SLIM FIT - Maglietta a manica lunga"
+    },
+    {
+        "title": "Abercrombie & Fitch",
+        "number": 6,
+        "type": "Maglia",
+        "image": "https://img01.ztat.net/article/spp-media-p1/269d3e207f7835c88ab5f8b823b3ddaf/ccd7c12bd23641ceb74e1c8ea11068c8.jpg?imwidth=1800",
+        "price": 38.99,
+        "originalPrice": "",
+        "description": "FRINGE CREW 3 PACK - T-shirt basic"
+    },
+    {
+        "title": "Nike Performance",
+        "number": 7,
+        "type": "Maglia",
+        "image": "https://img01.ztat.net/article/spp-media-p1/163de78bc1a348dca537fbea9803b770/eeb17b1f49244dc1ab52a6a62b39b086.jpg?imwidth=1800",
+        "price": 39.99,
+        "originalPrice": "",
+        "description": "TIGHT MOCK - Maglietta a manica lunga"
+    },
+    {
+        "title": "TOM TAILOR DENIM",
+        "number": 8,
+        "type": "Camicia",
+        "image": "https://img01.ztat.net/article/spp-media-p1/4c047ac3abb03a989030ddddbd4ca0f2/e0381134072a42acbfe715a498685383.jpg?imwidth=1800",
+        "price": 24.09,
+        "originalPrice": 29.99,
+        "description": "Camicia elegante"
+    },
+    {
+        "title": "G-Star",
+        "number": 9,
+        "type": "Canotta",
+        "image": "https://img01.ztat.net/article/spp-media-p1/8836940b86813396a8b0933454d4e1cd/f1f806882e744be4bd9ce860a33dba3f.jpg?imwidth=1800",
+        "price": 29.99,
+        "originalPrice": "",
+        "description": "BASE TANK 2 PACK - Top"
+    },
+    {
+        "title": "KnowledgeCotton Apparel",
+        "number": 10,
+        "type": "Canotta",
+        "image": "https://img01.ztat.net/article/spp-media-p1/a5a7d0c4886f3c098f11e46341216d11/d881e983c9fc41e495ef1e0d7b880007.jpg?imwidth=1800",
+        "price": 13.49,
+        "originalPrice": 29.99,
+        "description": "PALM OWL CHEST TANK - Top"
+    },
+    {
+        "title": "Denim Culture",
+        "number": 11,
+        "type": "Camicia",
+        "image": "https://img01.ztat.net/article/spp-media-p1/ebdb2365d3464e12a909eb70cd73960a/a290864811ac40498dd7c4941a42c694.jpg?imwidth=1800&filter=packshot",
+        "price": 34.95,
+        "originalPrice": "",
+        "description": "HEMD MACARIO - Camicia"
+    },
+    {
+        "title": "PULL&BEAR",
+        "number": 12,
+        "type": "Pantalone",
+        "image": "https://img01.ztat.net/article/spp-media-p1/3316cc9b7b5e453b88fcadb9a167be32/1962c566730145ceabf984ea42731f22.jpg?imwidth=1800",
+        "price": 35.99,
+        "originalPrice": "",
+        "description": "Jeans a sigaretta"
+    },
+    {
+        "title": "Under Armour",
+        "number": 13,
+        "type": "Canotta",
+        "image": "https://img01.ztat.net/article/spp-media-p1/a5a7d0c4886f3c098f11e46341216d11/d881e983c9fc41e495ef1e0d7b880007.jpg?imwidth=1800",
+        "price": 25.99,
+        "originalPrice": "",
+        "description": "SPORTSTYLE LOGO - Top"
+    },
+    {
+        "title": "Seidensticker",
+        "number": 14,
+        "type": "Camicia",
+        "image": "https://img01.ztat.net/article/spp-media-p1/8d33da1ed30f34678293a5642919f499/2330a289744b4c52a567af9f4f3292a9.jpg?imwidth=1800",
+        "price": 42.95,
+        "originalPrice": 59.95,
+        "description": "BUSINESS KENT - Camicia elegante"
+    },
+    {
+        "title": "Kings Will Dream",
+        "number": 15,
+        "type": "Giacca",
+        "image": "https://img01.ztat.net/article/spp-media-p1/c4eb4da3873f448a9dcad8cd26646737/780de70f10a04acd926bb50641495f3e.jpg?imwidth=1800&filter=packshot",
+        "price": 98.99,
+        "originalPrice": 109.99,
+        "description": "BROMLEY - Giacca invernale"
+    },
+    {
+        "title": "Calvin Klein Tailored",
+        "number": 16,
+        "type": "Camicia",
+        "image": "https://img01.ztat.net/article/spp-media-p1/0f365ed0f9993feb983fdf78b7f044cf/81f513564658422fb2b979c10ec2dffd.jpg?imwidth=1800&filter=packshot",
+        "price": 63.99,
+        "originalPrice": 79.99,
+        "description": "BARI SLIM FIT - Camicia elegante"
+    }
+]

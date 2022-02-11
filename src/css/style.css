@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0 auto;
+  color: #fff;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin: 10px;
+  background-color: #000;
+  padding: 10px;
+  position: relative;
+  border: 1px solid crimson;
+}
+
+i.fa-expand,
+i.fa-xmark {
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.nav-button {
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid black;
+  padding: 5px 9px;
+  /* width: 50px; */
+  /* height: 50%; */
+  border-radius: 50%;
+}
+
+.fa-expand {
+  color: lightgreen;
+}
+
+.fa-xmark {
+  color: crimson;
+}
+
+.container {
+  padding: 50px 0;
+}
+
+.container-app {
+  width: 50%;
+  background-color: seagreen;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+}
+
+#container-product {
+  width: 100%;
+  min-height: 260px;
+  background-color: seagreen;
+}
+
+.size-image {
+  height: 100%;
+  margin-right: 30px;
+}
+
+.not-visible {
+  height: 150px;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid lightgreen;
+}
+
+.not-visible:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.not-visible img:hover {
+  height: 300px;
+  position: absolute;
+  z-index: 1000;
+}
+
+.fl {
+  float: left;
+}
+
+.container-ty-des {
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.hide {
+  display: none;
+}
+
+.color-lightgreen {
+  color: lightgreen;
+  font-weight: bold;
+}
+
+.color-seagreen {
+  color: seagreen;
+}
+
+.color-crimson {
+  color: crimson;
+}
+
+.bg-color-black {
+  background-color: black !important;
+}
+
+.price {
+  color: lightgreen;
+  position: absolute;
+  left: 280px;
+}
+
+.original-price {
+  color: crimson;
+  text-decoration: line-through;
+  position: absolute;
+  left: 230px;
+}
+
+.sale {
+  color: #000;
+  position: absolute;
+  right: 10px;
+  top: 2px;
+  background-color: lightgreen;
+  padding: 2px 15px;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-weight: bold;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.button-page {
+  margin: 0 5px;
+  border: 1px solid black;
+  width: 13px;
+  height: 13px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+}

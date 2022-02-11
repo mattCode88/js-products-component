@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    
+
+    <div class="container">
+
+
+
+        <main-products class="container-app">
+
+            <div id="container-product">
+                <ul id="card-list"></ul>
+            </div>
+
+            <div class="navigation">
+                <i id="prev-btn" class="fa-solid fa-angle-left nav-button"></i>
+                <div id="cont-page"></div>
+                <i id="next-btn" class="fa-solid fa-angle-right nav-button"></i>
+            </div>
+
+            
+        </main-products>
+
+
+
+
+    </div>
+
+
+
+    <script type="module">
+        import MainProducts from './src/app/index.js';
+        customElements.define('main-products', MainProducts);
+    </script>
+    <script src="https://kit.fontawesome.com/c0f5be1aa9.js" crossorigin="anonymous"></script>
+</body>
+</html>
