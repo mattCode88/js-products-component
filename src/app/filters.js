@@ -1,22 +1,14 @@
-// import MainProducts from ".index.js"
+import Data from "./data.js"
 
-// class Filters extends HTMLElement{
+export default class Filters extends Data{
+    constructor() {
+        super();
 
-//     constructor() {
-//         super()
+        this.ciao()
 
-//         this.ciao()
-//     }
-// }
+    }
 
-// ciao = () => {
-//     console.log('ciao')
-// }
-
-// export default Filters;
-
-function ciao() {
-    console.log('ciao')
-}
-
-export default ciao;
+    ciao() {
+        console.log('ciao')
+    }
+};

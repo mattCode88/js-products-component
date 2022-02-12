@@ -56,7 +56,7 @@ i.fa-xmark {
 
 #container-product {
   width: 100%;
-  min-height: 260px;
+  min-height: 320px;
   background-color: seagreen;
 }
 
@@ -155,4 +155,48 @@ i.fa-xmark {
   border-radius: 50%;
   background-color: #fff;
   cursor: pointer;
+}
+
+.filters {
+  width: 100%;
+  height: 60px;
+  /* border: 2px solid yellow; */
+  /* background-color: red; */
+  /* display: flex; */
+  /* justify-content: space-between; */
+  position: relative;
+}
+
+#filter-left,
+#filter-right {
+  position: absolute;
+  top: 10px;
+  /* display: flex; */
+  background-color: black;
+  padding: 10px;
+  border: 1px solid crimson;
+  cursor: pointer;
+}
+
+#filter-left > span,
+#filter-right > span {
+  padding-right: 20px;
+}
+
+#filter-left {
+  /* align-self: flex-start; */
+  /* align-self: flex-start; */
+  /* width: 150px; */
+
+  background-color: black;
+  left: 10px;
+}
+
+#filter-right {
+  right: 10px;
+}
+
+#container-categories,
+#container-price {
+  /* display: none; */
 }
