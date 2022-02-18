@@ -22,8 +22,8 @@ export default class Data extends HTMLElement{
         this.prevButton.addEventListener('click', this.prevFn);
 
         this.getToDb(this.dataBase).then(ris => {
-            this.innerProduct(this.currentPage, ris);
             this.addButtonPage(ris);
+            this.innerProduct(this.currentPage, ris);
             this.changeButtonPage(ris);
             this.expandEvent();
         });
