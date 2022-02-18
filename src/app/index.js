@@ -1,6 +1,6 @@
-import Filters from "./filters.js";
+import PriceRange from "./price-range.js";
 
-export default class MainProducts extends Filters{
+export default class MainProducts extends PriceRange{
 
     constructor() {
         super();

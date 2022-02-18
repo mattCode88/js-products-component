@@ -18,13 +18,32 @@
                     <div id="filter-left">
                         <span>CATEGORIA</span>
                         <i class="fa-solid fa-angle-down"></i>
-                        <div id="container-categories">fghgj</div>
+                        <ul id="container-categories" class="hide"></ul>
                     </div>
-                    
                     <div id="filter-right">
                         <span>PREZZO</span>
                         <i class="fa-solid fa-angle-down"></i>
-                        <div id="container-price">gfds</div>
+                        <div id="container-price" class="hide">
+                            <div class="price-import">
+                                <div class="import-input">
+                                    <span>Min</span>
+                                    <input type="number" class="input-import input-import-min" value="">
+                                </div>
+                                <div class="separator">-</div>
+                                <div class="import-input">
+                                    <span>Max</span>
+                                    <input type="number" class="input-import input-import-max" value="">
+                                </div>
+                            </div>
+                            <div class="price-slider">
+                                <div id="slider-progress"></div>
+                            </div>
+                            <div id="range-input">
+                                <input type="range" class="range-min" min="" max="" value="">
+                                <input type="range" class="range-max" min="" max="" value="">
+                            </div>
+                            <div id="button-price"><i class="fa-solid fa-magnifying-glass" id="search"></i></div>
+                        </div>
                     </div>
                 </div>
                 <ul id="card-list"></ul>

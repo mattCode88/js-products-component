@@ -142,5 +142,32 @@
         "price": 63.99,
         "originalPrice": 79.99,
         "description": "BARI SLIM FIT - Camicia elegante"
+    },
+    {
+        "title": "Seidensticker",
+        "number": 14,
+        "type": "Camicia",
+        "image": "https://img01.ztat.net/article/spp-media-p1/8d33da1ed30f34678293a5642919f499/2330a289744b4c52a567af9f4f3292a9.jpg?imwidth=1800",
+        "price": 42.95,
+        "originalPrice": 59.95,
+        "description": "BUSINESS KENT - Camicia elegante"
+    },
+    {
+        "title": "Seidensticker",
+        "number": 14,
+        "type": "Camicia",
+        "image": "https://img01.ztat.net/article/spp-media-p1/8d33da1ed30f34678293a5642919f499/2330a289744b4c52a567af9f4f3292a9.jpg?imwidth=1800",
+        "price": 42.95,
+        "originalPrice": 59.95,
+        "description": "BUSINESS KENT - Camicia elegante"
+    },
+    {
+        "title": "Seidensticker",
+        "number": 14,
+        "type": "Camicia",
+        "image": "https://img01.ztat.net/article/spp-media-p1/8d33da1ed30f34678293a5642919f499/2330a289744b4c52a567af9f4f3292a9.jpg?imwidth=1800",
+        "price": 42.95,
+        "originalPrice": 59.95,
+        "description": "BUSINESS KENT - Camicia elegante"
     }
 ]

@@ -6,6 +6,11 @@ export default class Data extends HTMLElement{
         this.dataBase = 'src/database/database.json';
         this.currentPage = 1;
         this.recordForPage = 5;
+        this.filter = false;
+        this.price = false;
+        this.minPrice = 0;
+        this.maxPrice = 0;
+        this.chooseCategories = 'All';
 
         this.nextButton = document.getElementById('next-btn');
         this.prevButton = document.getElementById('prev-btn');
@@ -16,57 +21,131 @@ export default class Data extends HTMLElement{
         this.nextButton.addEventListener('click', this.nextFn);
         this.prevButton.addEventListener('click', this.prevFn);
 
-        this.innerProduct(this.currentPage);
-        this.addButtonPage();
-        this.expandEvent();
-        this.changeButtonPage();   
-    }
+        this.getToDb(this.dataBase).then(ris => {
+            this.innerProduct(this.currentPage, ris);
+            this.addButtonPage(ris);
+            this.changeButtonPage(ris);
+            this.expandEvent();
+        });
+    };
 
-    /*FUNZIONE ASINCRONA:
+     /*FUNZIONE ASINCRONA:
     mi permette di prendere i dati dal foglio json in modo asincrono */
     async getToDb(dataBase) {
         let ris = await fetch(dataBase);
         let risToArray = ris.json();
         return risToArray;
     };
-    
+
+     /*INSERISCO I PRODOTTI IN PAGINA:
+    in base alla pagina corrente inserisco i prodotti da visualizzare in pagina */
+    innerProduct = (page, dati) => {
+        this.cardList.innerHTML = '';
+        for (let i = (page - 1) * this.recordForPage;
+            i < page * this.recordForPage && i < dati.length;
+            i++) {
+            this.createCard(dati[i], i);
+        };
+        this.changeColorButtonNextPrev(dati);
+    };
+
     /*AVANTI DI UNA PAGINA:
     tramite questa funzione aggiungo 1 al puntatore della pagina corrente e attivo la funzione innerProduct()*/
     nextFn = () => {
         this.getToDb(this.dataBase).then(ris => {
-            let datiJson = ris;
+            let datiJson = this.createFilterDatabase(ris);
             if (this.currentPage < Math.ceil(datiJson.length / this.recordForPage)) {
                 this.buttonList[this.currentPage - 1].classList.remove('bg-color-black');
                 this.currentPage++;
                 this.buttonList[this.currentPage - 1].classList.add('bg-color-black');
             };
-            this.innerProduct(this.currentPage);
+            this.innerProduct(this.currentPage, datiJson);
         });
     };
 
     /*INDIETRO DI UNA PAGINA:
-    tramite questa funzione sottraggo 1 al puntatore della pagina corrente e attivo la funzione innerProduct() */
+    tramite questa funzione sottraggo 1 al puntatore della pagina corrente e attivo la funzione innerProduct() */    
     prevFn = () => {
-        if (this.currentPage > 1) {
-            this.buttonList[this.currentPage - 1].classList.remove('bg-color-black');
-            this.currentPage--;
-        };
-        this.innerProduct(this.currentPage);  
-        this.buttonList[this.currentPage - 1].classList.add('bg-color-black');
+        this.getToDb(this.dataBase).then(ris => {
+            let datiJson = this.createFilterDatabase(ris);
+            if (this.currentPage > 1) {
+                this.buttonList[this.currentPage - 1].classList.remove('bg-color-black');
+                this.currentPage--;
+            };
+            this.innerProduct(this.currentPage, datiJson);  
+            if(this.buttonList.length !== 0) this.buttonList[this.currentPage - 1].classList.add('bg-color-black');
+        })
     };
 
-    /*CAMBIO COLORI BOTTONI:
+    /*DATABASE FILTRATO:
+    creo un database iltrato per prezzi e categorie da restituire a prev e next */
+    createFilterDatabase = (ris) => {
+        let datiJson;
+        if (!this.filter && !this.price) {
+            datiJson = ris;
+        } else if (!this.filter && this.price) {
+            datiJson = ris.filter(elem => {
+                return elem.price >= this.minPrice && elem.price <= this.maxPrice;
+            });
+        } else if (this.filter && this.price) {
+            datiJson = ris.filter(element => {
+                if (element.type === this.chooseCategorie) {
+                    return element.price >= this.minPrice && element.price <= this.maxPrice;
+                };
+            });
+        } else {
+            datiJson = ris.filter(elem => {
+                return elem.type === this.chooseCategorie;
+            });
+        };
+        return datiJson;
+    }
+
+    /*AGGIUNGO I BOTTONI PAGINE:
+    in base al database aggiungo giusta quantità bottoni pagina */
+    addButtonPage = (dati) => {
+        this.contPage.innerHTML = '';
+        let page = Math.ceil(dati.length / this.recordForPage);        
+        for (let i = 0; i < page; i++) {
+            let buttonPage = document.createElement('SPAN');
+            buttonPage.classList.add('button-page');
+            buttonPage.setAttribute('data-count', i + 1);
+            this.contPage.appendChild(buttonPage);
+        };
+        let buttonList = document.getElementsByClassName('button-page');
+        if(buttonList.length !== 0) buttonList[0].classList.add('bg-color-black');
+    };
+
+    /*CAMBIO PAGINA:
+    in base al button pagina cliccato cambio la currentPage e mostro la pagina richiesta */
+    changeButtonPage = (dati) => {
+        this.contPage.addEventListener('click', e => {
+            if (e.target.tagName === 'SPAN') {
+                this.buttonList[this.currentPage - 1].classList.remove('bg-color-black');
+                e.target.classList.add('bg-color-black')
+                this.currentPage = Number(e.target.dataset.count);
+                this.innerProduct(this.currentPage, dati);
+            };
+        });
+    };
+
+     /*CAMBIO COLORI BOTTONI:
     cambia i colori dei bottoni next e prev, in base al puntatore currentPage, la richiamo in innerProduct()  */
     changeColorButtonNextPrev = (datiJson) => {
-        if (this.currentPage === 1) {
+        if (this.currentPage === 1 && (this.buttonList.length === 1 || this.buttonList.length === 0)) {
+            this.prevButton.classList.remove('color-seagreen');
+            this.nextButton.classList.remove('color-seagreen');
+            this.nextButton.classList.add('color-crimson');
             this.prevButton.classList.add('color-crimson');
-            this.nextButton.classList.add('color-seagreen');
-            this.nextButton.classList.remove('color-crimson');
         } else if (this.currentPage === Math.ceil(datiJson.length / this.recordForPage)) {
             this.prevButton.classList.remove('color-crimson');
             this.nextButton.classList.remove('color-seagreen');
             this.nextButton.classList.add('color-crimson');
             this.prevButton.classList.add('color-seagreen');
+        } else if (this.currentPage === 1) {
+            this.prevButton.classList.add('color-crimson');
+            this.nextButton.classList.add('color-seagreen');
+            this.nextButton.classList.remove('color-crimson');
         } else {
             this.prevButton.classList.remove('color-crimson');
             this.prevButton.classList.add('color-seagreen');
@@ -75,52 +154,27 @@ export default class Data extends HTMLElement{
         };
     };
 
-    /*AGGIUNGO SELETTORI PAGINA:
-    creo dei pallini che identificano le varie pagine */
-    addButtonPage = () => {
-        this.getToDb(this.dataBase).then(ris => {
-            let page = Math.ceil(ris.length / this.recordForPage);
-            for (let i = 0; i < page; i++) {
-                let buttonPage = document.createElement('SPAN');
-                buttonPage.classList.add('button-page');
-                buttonPage.setAttribute('data-count', i + 1);
-                this.contPage.appendChild(buttonPage);
-            };
-            let buttonList = document.getElementsByClassName('button-page');
-            buttonList[0].classList.add('bg-color-black');
-        });
-    };
-
-    /*CAMBIO PUNTATORE PAGINA:
-    in base ai bottoni pagine cliccati cambio il colore dei bottoni e attivo innerProduct() per cambiare pagina */
-    changeButtonPage = () => {
-        this.contPage.addEventListener('click', e => {
-            if (e.target.tagName === 'SPAN') {
-                this.buttonList[this.currentPage - 1].classList.remove('bg-color-black');
-                e.target.classList.add('bg-color-black')
-                this.currentPage = Number(e.target.dataset.count);
-                this.innerProduct(this.currentPage);
+    /*ESPANDO LE SPECIFICHE PRODOTTO:
+    al click mostro o nascondo le specifiche del prodotto richiesto*/
+    expandEvent = () => {
+        this.cardList.addEventListener('click', (e) => {
+            if (e.target.tagName === 'I') {
+                let index = Number(e.target.dataset.count);
+                if (this.cardList.children[index].lastChild.classList.contains('hide')) {
+                    this.cardList.children[index].lastChild.classList.remove('hide')
+                    e.target.classList.remove('fa-expand');
+                    e.target.classList.add('fa-xmark');
+                } else {
+                    this.cardList.children[index].lastChild.classList.add('hide');
+                    e.target.classList.remove('fa-xmark');
+                    e.target.classList.add('fa-expand');
+                };
             };
         });
     };
 
-    /*INSERISCO I PRODOTTI IN PAGINA:
-    in base alla pagina corrente inserisco i 5 prodotti da visualizzare in pagina */
-    innerProduct = (page) => {
-        this.cardList.innerHTML = '';
-        this.getToDb(this.dataBase).then(ris => {
-            let datiJson = ris;
-            for (let i = (page - 1) * this.recordForPage;
-                i < page * this.recordForPage && i < datiJson.length;
-                i++) {
-                this.createCard(datiJson[i], i);
-            };
-            this.changeColorButtonNextPrev(datiJson);
-        });
-    };
-
-    /*CREO CARD PRODOTTI:
-    creo gli elementi html con le specifiche dei prodotti da inserire in pagina */
+    /*CREO PRODOTTI:
+    creo le card dei vari prodotti */
     createCard = (element, index) => {
 
         let card = document.createElement('LI'),
@@ -196,25 +250,6 @@ export default class Data extends HTMLElement{
    
     };
 
-    /*ESPANDO LE SPECIFICHE PRODOTTO:
-    al click mostro o nascondo le specifiche del prodotto richiesto*/
-    expandEvent = () => {
-        this.cardList.addEventListener('click', (e) => {
-            if (e.target.tagName === 'I') {
-                let index = Number(e.target.dataset.count);
-                if (this.cardList.children[index].lastChild.classList.contains('hide')) {
-                    this.cardList.children[index].lastChild.classList.remove('hide')
-                    e.target.classList.remove('fa-expand');
-                    e.target.classList.add('fa-xmark');
-                } else {
-                    this.cardList.children[index].lastChild.classList.add('hide');
-                    e.target.classList.remove('fa-xmark');
-                    e.target.classList.add('fa-expand');
-                };
-            };
-        });
-    };
-
     /*SETTO INDICI DI DATASET DEI TAG I:
     funzione che richiamo in createCard() per settare il dataset in base alla pagina in cui mi trovo*/
     setCountElement = (index) => {
@@ -230,6 +265,7 @@ export default class Data extends HTMLElement{
     calculationSale = (element) => {
         return Math.round(100 - (element.price * 100 / element.originalPrice));
     };
+
 };
 
 
